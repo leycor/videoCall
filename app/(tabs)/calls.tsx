@@ -1,4 +1,4 @@
-import { Image, StyleSheet } from "react-native";
+import { Image, StyleSheet, View } from "react-native";
 import { HelloWave } from "@/components/HelloWave";
 import ParallaxScrollView from "@/components/ParallaxScrollView";
 import { ThemedText } from "@/components/ThemedText";
@@ -8,10 +8,10 @@ import { ThemedView } from "@/components/ThemedView";
 import "expo-dev-client";
 import React, { useState } from "react";
 import AgoraUIKit, { AgoraUIKitProps  } from "agora-rn-uikit";
-import { View } from "react-native-reanimated/lib/typescript/Animated";
 
 export default function CallsScreen() {
   const [videoCall, setVideoCall] = useState(true);
+  console.log({videoCall})
 
   const props: AgoraUIKitProps = {
     connectionData: {
@@ -38,7 +38,9 @@ export default function CallsScreen() {
           {videoCall ? (
             <AgoraUIKit
               connectionData={props.connectionData}
-              rtcCallbacks={props.rtcCallbacks}
+              rtcCallbacks={ {
+                
+              }}
             />
           ) : null}
         </View>
